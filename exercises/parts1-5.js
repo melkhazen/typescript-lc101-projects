@@ -1,5 +1,8 @@
+"use strict";
+exports.__esModule = true;
 // URL for the instructions: 
 // https://education.launchcode.org/intro-to-professional-web-dev/chapters/typescript/exercises.html 
+var SpaceLocation_1 = require("./SpaceLocation");
 // Part 1: Declare (5) Variables With Type
 var spacecraftName = 'Determination';
 var speedMph = 17500;
@@ -30,6 +33,9 @@ var Spacecraft = /** @class */ (function () {
         var daysTolocation = hoursToLocation / 24;
         return daysTolocation;
     };
+    Spacecraft.prototype.printDaysToLocation = function (location) {
+        console.log(this.name + " would take " + this.getDaysToLocation(location.kilometersAway) + " days to get to " + location.name + ".");
+    };
     return Spacecraft;
 }());
 // Create an instance of the class here:
@@ -40,5 +46,7 @@ console.log("the spacecraft " + spaceShuttle.name + " will take " + spaceShuttle
 console.log("the spacecraft " + spaceShuttle.name + " will take " + spaceShuttle.getDaysToLocation(kilometersToTheMoon) + " days to get to the moon.");
 // Part 5: Export and Import the SpaceLocation Class
 // Add the required import statement BEFORE the part 1 concent.
+spaceShuttle.printDaysToLocation(new SpaceLocation_1.SpaceLocation('Mars', kilometersToMars));
+spaceShuttle.printDaysToLocation(new SpaceLocation_1.SpaceLocation('the Moon', kilometersToTheMoon));
 // Add the printDaysToLocation function to the Spacecraft class.
 // Paste in the code from step 6 here:
